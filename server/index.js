@@ -9,7 +9,6 @@ import postRoutes from './routes/posts.js'
 //express Variable
 const app = express();
 
-app.use('/', postRoutes);
 
 
 //Middelware
@@ -18,8 +17,7 @@ app.use(bodyParser.urlencoded({limit: '30mb', extended:true }));
 app.use(cors());
 
 //Local Routting 
-
-
+app.use('/posts', postRoutes);
 
 //Local Port 
 const PORT = process.env.PORT || 5000;

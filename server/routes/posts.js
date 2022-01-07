@@ -1,14 +1,14 @@
 import express from 'express';
 
+import { getPosts, getPost, createPost, updatePost, likePost, deletePost } from '../controllers/posts.js';
 
-// Local Controller Modul Importting 
-import {getPosts, createPost} from '../controllers/posts.js'
-
-//Routting veriable
 const router = express.Router();
 
-//http://localhost:5000/post 
-router.get('/', getPosts )
-router.post('/', createPost )
-//Routting export to main index
+router.get('/', getPosts);
+router.post('/', createPost);
+router.get('/:id', getPost);
+router.patch('/:id', updatePost);
+router.delete('/:id', deletePost);
+router.patch('/:id/likePost', likePost);
+
 export default router;
